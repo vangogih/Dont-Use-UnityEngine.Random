@@ -1,0 +1,7 @@
+# Ignore default C# project generated folders and files
+/[Bb]in/
+/[Oo]bj/
+/[Pp]roperties/
+
+/*.csproj
+/.idea
