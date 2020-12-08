@@ -7,13 +7,13 @@ public interface IRandom
     /// <summary>Create new random with new unique seed</summary>
     void NewSeed();
 
-    /// <summary>Create new random sequence with new seed</summary>
+    /// <summary>Create new random sequence based on new seed</summary>
     void NewSeed(int seed);
 
     /// <returns>A random float number between 0.0f (inclusive) and 1.0f (inclusive)</returns>
     float GetFloat();
 
-    /// <returns>A random int number between 0 (inclusive) and 1 (inclusive)</returns>
+    /// <returns>A random int number between int.MinValue (inclusive) and int.MaxValue (inclusive)</returns>
     int GetInt();
 
     /// <returns>A random float number between min (inclusive) and max (inclusive) values</returns>
