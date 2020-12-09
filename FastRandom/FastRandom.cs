@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Multiplicative Congruence generator using a modulus of 2^31
 /// </summary>
-public class FastRandom : IRandom
+public sealed class FastRandom : IRandom
 {
     private const ulong Modulus = 2147483647; //2^31
     private const ulong Multiplier = 1132489760;
