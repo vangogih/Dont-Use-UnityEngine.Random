@@ -1,11 +1,1 @@
-packages/*
-
-
-[Oo]bj/
-[Bb]in/
-[Oo]ut/
-
-# User-specific Files
-*.user
-.idea
-.vscode
+*.meta

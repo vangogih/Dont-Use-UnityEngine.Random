@@ -58,16 +58,16 @@ public class FastRandom : IRandom
 
     public Vector2 GetInsideCircle(float radius = 1)
     {
-        var x = GetFloat() * radius;
-        var y = GetFloat() * radius;
+        var x = Range(-1f, 1f) * radius;
+        var y = Range(-1f, 1f) * radius;
         return new Vector2(x, y);
     }
 
     public Vector3 GetInsideSphere(float radius = 1)
     {
-        var x = GetFloat() * radius;
-        var y = GetFloat() * radius;
-        var z = GetFloat() * radius;
+        var x = Range(-1f, 1f) * radius;
+        var y = Range(-1f, 1f) * radius;
+        var z = Range(-1f, 1f) * radius;
         return new Vector3(x, y, z);
     }
 
