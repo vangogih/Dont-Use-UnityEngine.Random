@@ -19,16 +19,16 @@ public interface IRandom
     /// <returns>A random float number between min (inclusive) and max (inclusive) values</returns>
     float Range(float min, float max);
 
-    /// <returns>A random int number between min (inclusive) and max (inclusive) values</returns>
+    /// <returns>A random int number between int.MinValue (inclusive) and int.MaxValue (inclusive) values</returns>
     int Range(int min, int max);
 
-    /// <returns>A random Vector2 struct where X and Y has numbers in 0.0f .. 1.0f (inclusive)</returns>
+    /// <returns>A random Vector2 struct where X and Y has numbers in int.MinValue (inclusive) and int.MaxValue (inclusive)</returns>
     Vector2 GetVector2();
 
     /// <returns>A point inside the circle with given radius</returns>
     Vector2 GetInsideCircle(float radius);
 
-    /// <returns>A random Vector3 struct where X,Y,Z has numbers in 0.0f .. 1.0f (inclusive)</returns>
+    /// <returns>A random Vector3 struct where X,Y,Z has numbers in int.MinValue (inclusive) and int.MaxValue (inclusive)</returns>
     Vector3 GetVector3();
 
     /// <returns>A point inside the sphere with given radius</returns>

@@ -27,7 +27,7 @@ public class FastRandom : IRandom
     {
         _next = (ulong) RandomSeed.Crypto();
     }
-    
+
     /// <inheritdoc />
     /// <remarks>If the seed value is zero, it is set to one.</remarks>
     public void NewSeed(int seed)
@@ -60,32 +60,37 @@ public class FastRandom : IRandom
 
     public Vector2 GetVector2()
     {
-        var x = GetFloat() * int.MaxValue;
-        var y = GetFloat() * int.MaxValue;
+        var x = Range((float) int.MinValue, int.MaxValue);
+        var y = Range((float) int.MinValue, int.MaxValue);
         return new Vector2(x, y);
     }
 
     public Vector2 GetInsideCircle(float radius = 1)
     {
-        return new Vector2(GetFloat(), GetFloat()) * radius;
+        var x = GetFloat() * radius;
+        var y = GetFloat() * radius;
+        return new Vector2(x, y);
     }
 
     public Vector3 GetVector3()
     {
-        var x = Range(int.MinValue, int.MaxValue);
-        var y = Range(int.MinValue, int.MaxValue);
-        var z = Range(int.MinValue, int.MaxValue);
+        var x = Range((float) int.MinValue, int.MaxValue);
+        var y = Range((float) int.MinValue, int.MaxValue);
+        var z = Range((float) int.MinValue, int.MaxValue);
         return new Vector3(x, y, z);
     }
 
     public Vector3 GetInsideSphere(float radius = 1)
     {
-        return new Vector3(GetFloat(), GetFloat(), GetFloat()) * radius;
+        var x = GetFloat() * radius;
+        var y = GetFloat() * radius;
+        var z = GetFloat() * radius;
+        return new Vector3(x, y, z);
     }
 
     public Quaternion GetRotation()
     {
-        return GetRotationOnSurface(GetVector3());
+        return GetRotationOnSurface(GetInsideSphere());
     }
 
     public Quaternion GetRotationOnSurface(Vector3 surface)
