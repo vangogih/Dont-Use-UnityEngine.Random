@@ -3,7 +3,7 @@
   "displayName": "Fast Random",
   "version": "1.0.0",
   "unity": "2019.2",
-  "description": "Fast Random is the script provided Multiplicative Congruence generator and smart interface for fixing conflict with signle isntance UnityEngine.Random.",
+  "description": "Fast Random is the script provided multiplicative congruential generator and smart interface for fixing conflict with single instance UnityEngine.Random where you cannot change seed.",
   "category": "Unity",
   "type": "tool"
 }
