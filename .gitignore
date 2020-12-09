@@ -1,7 +1,11 @@
-# Ignore default C# project generated folders and files
-/[Bb]in/
-/[Oo]bj/
-/[Pp]roperties/
+packages/*
 
-/*.csproj
-/.idea
+
+[Oo]bj/
+[Bb]in/
+[Oo]ut/
+
+# User-specific Files
+*.user
+.idea
+.vscode
