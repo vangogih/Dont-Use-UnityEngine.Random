@@ -14,9 +14,7 @@ public class FastRandom : IRandom
     private ulong _next;
 
     public FastRandom()
-    {
-        NewSeed();
-    }
+        : this(RandomSeed.Crypto()) { }
 
     public FastRandom(int seed)
     {
@@ -25,7 +23,7 @@ public class FastRandom : IRandom
 
     public void NewSeed()
     {
-        _next = (ulong) RandomSeed.Crypto();
+        NewSeed(RandomSeed.Crypto());
     }
 
     /// <inheritdoc />
@@ -58,26 +56,11 @@ public class FastRandom : IRandom
         return (int) (InternalSample() * (max - min) + min);
     }
 
-    public Vector2 GetVector2()
-    {
-        var x = Range((float) int.MinValue, int.MaxValue);
-        var y = Range((float) int.MinValue, int.MaxValue);
-        return new Vector2(x, y);
-    }
-
     public Vector2 GetInsideCircle(float radius = 1)
     {
         var x = GetFloat() * radius;
         var y = GetFloat() * radius;
         return new Vector2(x, y);
-    }
-
-    public Vector3 GetVector3()
-    {
-        var x = Range((float) int.MinValue, int.MaxValue);
-        var y = Range((float) int.MinValue, int.MaxValue);
-        var z = Range((float) int.MinValue, int.MaxValue);
-        return new Vector3(x, y, z);
     }
 
     public Vector3 GetInsideSphere(float radius = 1)

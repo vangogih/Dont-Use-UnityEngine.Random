@@ -1,6 +1,5 @@
 // ReSharper disable CheckNamespace
 
-using System;
 using UnityEngine;
 using Random = System.Random;
 
@@ -8,19 +7,18 @@ public class SystemRandom : IRandom
 {
     private Random _rnd;
 
-    public SystemRandom()
+    public SystemRandom() : this(RandomSeed.Crypto())
     {
-        _rnd = new Random(RandomSeed.Crypto());
     }
 
     public SystemRandom(int seed)
     {
-        _rnd = new Random(seed);
+        NewSeed(seed);
     }
 
     public void NewSeed()
     {
-        _rnd = new Random(DateTime.UtcNow.GetHashCode());
+        NewSeed(RandomSeed.Crypto());
     }
 
     public void NewSeed(int seed)
@@ -40,7 +38,7 @@ public class SystemRandom : IRandom
 
     public float Range(float min, float max)
     {
-        return GetFloat() * (max - min) + min;
+        return (float) (_rnd.NextDouble() * (max - min) + min);
     }
 
     public int Range(int min, int max)
@@ -48,26 +46,11 @@ public class SystemRandom : IRandom
         return _rnd.Next(min, max);
     }
 
-    public Vector2 GetVector2()
-    {
-        var x = Range((float) int.MinValue, int.MaxValue);
-        var y = Range((float) int.MinValue, int.MaxValue);
-        return new Vector2(x, y);
-    }
-
     public Vector2 GetInsideCircle(float radius = 1)
     {
         var x = GetFloat() * radius;
         var y = GetFloat() * radius;
         return new Vector2(x, y);
-    }
-
-    public Vector3 GetVector3()
-    {
-        var x = Range((float) int.MinValue, int.MaxValue);
-        var y = Range((float) int.MinValue, int.MaxValue);
-        var z = Range((float) int.MinValue, int.MaxValue);
-        return new Vector3(x, y, z);
     }
 
     public Vector3 GetInsideSphere(float radius = 1)
