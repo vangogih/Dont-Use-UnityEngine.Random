@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IRandom
 {
+    int Seed { get; }
     /// <summary>Create new random with new unique seed</summary>
     void NewSeed();
 

@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public sealed class FastRandom : IRandom
 {
+    public int Seed { get; private set; }
+
     private const ulong Modulus = 2147483647; //2^31
     private const ulong Multiplier = 1132489760;
     private const double ModulusReciprocal = 1.0 / Modulus;
@@ -20,7 +22,7 @@ public sealed class FastRandom : IRandom
     {
         NewSeed(seed);
     }
-
+    
     public void NewSeed()
     {
         NewSeed(RandomSeed.Crypto());
@@ -33,6 +35,7 @@ public sealed class FastRandom : IRandom
         if (seed == 0)
             seed = 1;
 
+        Seed = seed;
         _next = (ulong) seed % Modulus;
     }
 
